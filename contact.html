@@ -11,7 +11,16 @@
 <body>
 
     <div id="nav-placeholder"></div>
-
+    <script>
+    // This script "grabs" the nav file and puts it in the placeholder
+    fetch('_nav.html')
+        .then(response => response.text())
+        .then(data => {
+        document.getElementById('nav-placeholder').innerHTML = data;
+        })
+        .catch(error => console.error('Error loading navigation:', error));
+    </script>
+    
     <div class="container">
         <h1>Contact Us</h1>
         <div class="main-layout">

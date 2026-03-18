@@ -39,7 +39,7 @@
     </footer>
 
     <script>
-        fetch('nav.html?v=' + Date.now()) 
+        fetch('/nav.html?v=' + Date.now()) 
             .then(response => {
                 if (!response.ok) {
                     throw new Error("HTTP error! Status: " + response.status);

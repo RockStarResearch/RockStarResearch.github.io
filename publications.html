@@ -3,32 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <title>Mancini Lab | Publications</title>
+
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
+    
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <div id="nav-placeholder"></div>
-    <script>
-    // This script "grabs" the nav file and puts it in the placeholder
-    fetch('_nav.html')
-        .then(response => response.text())
-        .then(data => {
-        document.getElementById('nav-placeholder').innerHTML = data;
-        })
-        .catch(error => console.error('Error loading navigation:', error));
-    </script>
 
     <div class="container">
-        <h1>Publications</h1>
-        <ul style="list-style: none; padding: 0;">
+        <h1>Publications</h1> <ul style="list-style: none; padding: 0;">
             <li style="padding: 20px 0; border-bottom: 1px solid #eaeaea;">
-                <strong>Synthetic Tools for Immunology</strong><br>
-                Mancini, R. J.; et al.<br>
-                <em>JACS, 2026.</em>
-            </li>
+                <strong>Synthetic Tools for Immunology</strong><br> Mancini, R. J.; et al.<br> <em>JACS, 2026.</em> </li>
         </ul>
     </div>
 
@@ -37,9 +27,30 @@
     </footer>
 
     <script>
-        fetch('_nav.html').then(res => res.text()).then(data => {
-            document.getElementById('nav-placeholder').innerHTML = data;
-        });
+        // 1. fetch: Go find the 'nav.html' file on the computer
+        // 2. ?v= + Date.now(): This is a trick to make sure the computer gets the "freshest" version
+        fetch('nav.html?v=' + Date.now()) 
+            .then(response => {
+                // Check if the file was actually there (like checking if the store is open)
+                if (!response.ok) {
+                    throw new Error("HTTP error! Status: " + response.status);
+                }
+                return response.text(); // Turn the file into text we can read
+            })
+            .then(data => {
+                // Put that text inside the empty "nav-placeholder" box we made earlier
+                document.getElementById('nav-placeholder').innerHTML = data;
+                console.log("Navigation loaded successfully.");
+            })
+            .catch(error => {
+                // If the robot trips and falls, this "catch" tells us what went wrong
+                console.error('Fetch error:', error);
+                
+                // Emergency Plan: If the nav file is lost, just show these two basic buttons
+                document.getElementById('nav-placeholder').innerHTML = 
+                    '<nav><a href="index.html">Home</a> | <a href="research.html">Research</a></nav>';
+            });
     </script>
+
 </body>
 </html>

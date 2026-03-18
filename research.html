@@ -11,15 +11,6 @@
 <body>
 
     <div id="nav-placeholder"></div>
-    <script>
-    // This script "grabs" the nav file and puts it in the placeholder
-    fetch('_nav.html')
-        .then(response => response.text())
-        .then(data => {
-        document.getElementById('nav-placeholder').innerHTML = data;
-        })
-        .catch(error => console.error('Error loading navigation:', error));
-    </script>
 
     <div class="container">
         <div class="main-layout">
@@ -27,8 +18,8 @@
                 <h1>Research Overview</h1>
                 <h3>Immune Modulation via Synthetic Chemistry</h3>
                 <p>We develop synthetic tools to better understand and manipulate immune responses.</p>
-                <img src="images/bi-2018-00095u_0005.jpg" alt="Research Diagram" style="width:100%; border: 1px solid #eee;">
-            </main>
+                
+                </main>
 
             <aside>
                 <h3>Current Projects</h3>
@@ -45,9 +36,22 @@
     </footer>
 
     <script>
-        fetch('_nav.html').then(res => res.text()).then(data => {
-            document.getElementById('nav-placeholder').innerHTML = data;
-        });
+        fetch('nav.html?v=' + Date.now()) 
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error("HTTP error! Status: " + response.status);
+                }
+                return response.text();
+            })
+            .then(data => {
+                document.getElementById('nav-placeholder').innerHTML = data;
+                console.log("Navigation loaded successfully.");
+            })
+            .catch(error => {
+                console.error('Fetch error:', error);
+                document.getElementById('nav-placeholder').innerHTML = 
+                    '<nav><a href="index.html">Home</a> | <a href="research.html">Research</a></nav>';
+            });
     </script>
 </body>
 </html>

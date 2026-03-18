@@ -11,15 +11,6 @@
 <body>
 
     <div id="nav-placeholder"></div>
-    <script>
-    // This script "grabs" the nav file and puts it in the placeholder
-    fetch('_nav.html')
-        .then(response => response.text())
-        .then(data => {
-        document.getElementById('nav-placeholder').innerHTML = data;
-        })
-        .catch(error => console.error('Error loading navigation:', error));
-    </script>
 
     <div class="container">
         <h1>Useful Links</h1>
@@ -32,7 +23,7 @@
                         <p>Our home institution.</p>
                     </li>
                     <li class="pub-item">
-                        <a href="#" class="pub-title">American Chemical Society (ACS)</a>
+                        <a href="https://pubs.acs.org/" class="pub-title" target="_blank">American Chemical Society (ACS)</a>
                         <p>Primary resource for chemical research and publications.</p>
                     </li>
                 </ul>
@@ -53,9 +44,24 @@
     </footer>
 
     <script>
-        fetch('_nav.html').then(res => res.text()).then(data => {
-            document.getElementById('nav-placeholder').innerHTML = data;
-        });
+        // Fetches the renamed nav.html file (no underscore)
+        fetch('nav.html?v=' + Date.now()) 
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error("HTTP error! Status: " + response.status);
+                }
+                return response.text();
+            })
+            .then(data => {
+                document.getElementById('nav-placeholder').innerHTML = data;
+                console.log("Navigation loaded successfully.");
+            })
+            .catch(error => {
+                console.error('Fetch error:', error);
+                // Emergency fallback link
+                document.getElementById('nav-placeholder').innerHTML = 
+                    '<nav><a href="index.html">Home</a> | <a href="links.html">Links</a></nav>';
+            });
     </script>
 </body>
 </html>

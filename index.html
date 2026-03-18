@@ -35,9 +35,12 @@
     </footer>
 
     <script>
-        fetch('./_nav.html') // Added './' to ensure it looks in the current directory
+        // CHANGE: Removed the underscore so GitHub/Jekyll doesn't ignore the file
+        fetch('nav.html?v=' + Date.now()) 
             .then(response => {
-                if (!response.ok) throw new Error("Navigation fragment not found at " + response.url);
+                if (!response.ok) {
+                    throw new Error("HTTP error! Status: " + response.status);
+                }
                 return response.text();
             })
             .then(data => {
@@ -45,9 +48,10 @@
                 console.log("Navigation loaded successfully.");
             })
             .catch(error => {
-                console.error('Error loading navigation:', error);
-                // Fallback: If it fails, show a simple text link
-                document.getElementById('nav-placeholder').innerHTML = '<a href="index.html">Home</a>';
+                console.error('Fetch error:', error);
+                // Emergency fallback so you aren't stuck without links
+                document.getElementById('nav-placeholder').innerHTML = 
+                    '<nav><a href="index.html">Home</a> | <a href="research.html">Research</a></nav>';
             });
     </script>
 

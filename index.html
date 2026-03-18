@@ -15,16 +15,6 @@
 
     <div id="nav-placeholder"></div>
 
-    <script>
-    // This script "grabs" the nav file and puts it in the placeholder
-    fetch('_nav.html')
-        .then(response => response.text())
-        .then(data => {
-        document.getElementById('nav-placeholder').innerHTML = data;
-        })
-        .catch(error => console.error('Error loading navigation:', error));
-    </script>
-
     <div class="container">
         <div class="main-layout">
             <main>
@@ -44,15 +34,20 @@
     </footer>
 
     <script>
-        fetch('_nav.html')
+        fetch('./_nav.html') // Added './' to ensure it looks in the current directory
             .then(response => {
-                if (!response.ok) throw new Error("Navigation fragment not found");
+                if (!response.ok) throw new Error("Navigation fragment not found at " + response.url);
                 return response.text();
             })
             .then(data => {
                 document.getElementById('nav-placeholder').innerHTML = data;
+                console.log("Navigation loaded successfully.");
             })
-            .catch(error => console.error(error));
+            .catch(error => {
+                console.error('Error loading navigation:', error);
+                // Fallback: If it fails, show a simple text link
+                document.getElementById('nav-placeholder').innerHTML = '<a href="index.html">Home</a>';
+            });
     </script>
 
 </body>

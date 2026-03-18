@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mancini Lab | Home</title>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div id="nav-placeholder"></div>
+
+    <div class="container">
+        <div class="main-layout">
+            <main>
+                <h2>Welcome to the Mancini Lab</h2>
+                <p>Synthesis and Chemical Biology at WSU.</p>
+            </main>
+
+            <aside>
+                <h3>Our Focus</h3>
+                <img src="images/bi-2018-00095u_0005.jpg" alt="Chemical pathway" style="width:100%; border: 1px solid #ddd;">
+            </aside>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 The Mancini Group | Washington State University | Pullman, WA</p>
+    </footer>
+
+    <script>
+        fetch('_nav.html')
+            .then(response => {
+                if (!response.ok) throw new Error("Navigation fragment not found");
+                return response.text();
+            })
+            .then(data => {
+                document.getElementById('nav-placeholder').innerHTML = data;
+            })
+            .catch(error => console.error(error));
+    </script>
+
+</body>
+</html>

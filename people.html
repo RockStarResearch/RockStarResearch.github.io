@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mancini Lab | People</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="nav-placeholder"></div>
+
+    <div class="container">
+        <h1>Lab Members</h1>
+        
+        <div class="people-grid">
+            <div class="person-card">
+                <img src="images/placeholder_pi.jpg" alt="Dr. Rock Mancini">
+                <div class="person-info">
+                    <h3>Dr. Rock Mancini</h3>
+                    <p>Principal Investigator</p>
+                </div>
+            </div>
+
+            <div class="person-card">
+                <img src="images/placeholder_student.jpg" alt="Graduate Student">
+                <div class="person-info">
+                    <h3>Your Name Here</h3>
+                    <p>Graduate Student</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 The Mancini Group | WSU</p>
+    </footer>
+
+    <script>
+        fetch('_nav.html').then(res => res.text()).then(data => {
+            document.getElementById('nav-placeholder').innerHTML = data;
+        });
+    </script>
+</body>
+</html>

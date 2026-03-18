@@ -1,0 +1,14 @@
+# Google Drive & Windows System Files
+.DS_Store
+Thumbs.db
+desktop.ini
+Icon?
+
+# VS Code Metadata
+.vscode/
+
+# Ignore any potential log files
+*.log
+
+#ignore the backup
+Backup/

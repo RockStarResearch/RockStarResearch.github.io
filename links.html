@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mancini Lab | Useful Links</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="nav-placeholder"></div>
+
+    <div class="container">
+        <h1>Useful Links</h1>
+        <div class="main-layout">
+            <main>
+                <h3>Academic & Research Resources</h3>
+                <ul class="pub-list">
+                    <li class="pub-item">
+                        <a href="https://wsu.edu" class="pub-title" target="_blank">Washington State University</a>
+                        <p>Our home institution.</p>
+                    </li>
+                    <li class="pub-item">
+                        <a href="#" class="pub-title">American Chemical Society (ACS)</a>
+                        <p>Primary resource for chemical research and publications.</p>
+                    </li>
+                </ul>
+            </main>
+
+            <aside>
+                <div style="background: #f9f9f9; padding: 20px; border-radius: 8px;">
+                    <h4>Lab Internal</h4>
+                    <p><small>Access restricted to lab members.</small></p>
+                    <a href="#" style="color: var(--primary-accent);">Lab Safety Manual</a>
+                </div>
+            </aside>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 The Mancini Group | WSU</p>
+    </footer>
+
+    <script>
+        fetch('_nav.html').then(res => res.text()).then(data => {
+            document.getElementById('nav-placeholder').innerHTML = data;
+        });
+    </script>
+</body>
+</html>

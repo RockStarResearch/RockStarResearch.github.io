@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mancini Lab | Publications</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="nav-placeholder"></div>
+
+    <div class="container">
+        <h1>Publications</h1>
+        <ul style="list-style: none; padding: 0;">
+            <li style="padding: 20px 0; border-bottom: 1px solid #eaeaea;">
+                <strong>Synthetic Tools for Immunology</strong><br>
+                Mancini, R. J.; et al.<br>
+                <em>JACS, 2026.</em>
+            </li>
+        </ul>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 The Mancini Group | WSU</p>
+    </footer>
+
+    <script>
+        fetch('_nav.html').then(res => res.text()).then(data => {
+            document.getElementById('nav-placeholder').innerHTML = data;
+        });
+    </script>
+</body>
+</html>

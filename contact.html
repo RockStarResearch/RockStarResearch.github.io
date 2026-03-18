@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mancini Lab | Contact Us</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="nav-placeholder"></div>
+
+    <div class="container">
+        <h1>Contact Us</h1>
+        <div class="main-layout">
+            <main>
+                <h3>Mailing Address</h3>
+                <p>
+                    <strong>Mancini Group</strong><br>
+                    Troy Hall, Room XXX<br>
+                    Washington State University<br>
+                    Pullman, WA 99164
+                </p>
+                
+                <h3>Email</h3>
+                <p>Primary Contact: <a href="mailto:rock.mancini@wsu.edu">rock.mancini@wsu.edu</a></p>
+            </main>
+
+            <aside>
+                <h3>Visit Us</h3>
+                <div style="width: 100%; height: 200px; background: #eee; display: flex; align-items: center; justify-content: center; border: 1px solid #ddd;">
+                    <p style="color: #666;">[Campus Map Placeholder]</p>
+                </div>
+            </aside>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 The Mancini Group | WSU</p>
+    </footer>
+
+    <script>
+        fetch('_nav.html').then(res => res.text()).then(data => {
+            document.getElementById('nav-placeholder').innerHTML = data;
+        });
+    </script>
+</body>
+</html>

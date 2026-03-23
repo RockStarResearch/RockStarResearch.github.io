@@ -13,42 +13,80 @@
     <div id="nav-placeholder"></div>
 
     <div class="container">
-        <h1>Lab Members</h1>
+        <h1 class="page-title">Mancini Group Members</h1>
         
-        <div class="people-grid">
-            <div class="person-card">
-                <img src="images/placeholder_pi.jpg" alt="Dr. Rock Mancini">
-                <div class="person-info">
-                    <h3>Dr. Rock Mancini</h3>
-                    <p>Principal Investigator</p>
+        <section class="people-section">
+            <h2 class="section-label">Principal Investigator</h2>
+            <div class="person-column">
+                <div class="person-card">
+                    <img src="images/mancini_rock.jpg" alt="">
+                    <div class="person-info">
+                        <h3>Dr. Rock Mancini</h3>
+                        <p class="role">Principal Investigator</p>
+                    </div>
                 </div>
             </div>
+        </section>
 
-            <div class="person-card">
-                <img src="images/placeholder_student.jpg" alt="Graduate Student">
-                <div class="person-info">
-                    <h3>Your Name Here</h3>
-                    <p>Graduate Student</p>
+        <section class="people-section">
+            <h2 class="section-label">Post-doctoral Scholars</h2>
+            <div class="person-column">
+                <div class="person-card">
+                    <img src="images/najibi_asma.jpg" alt="">
+                    <div class="person-info">
+                        <h3>Dr. Asma Najibi</h3>
+                        <p class="role">Post-doctoral Scholar</p>
+                    </div>
                 </div>
             </div>
-        </div>
+        </section>
+
+        <section class="people-section">
+            <h2 class="section-label">Graduate Students</h2>
+            <div class="person-column">
+                <div class="person-card"><img src="images/sultana_sharmin.jpg" alt=""><div class="person-info"><h3>Sharmin Sultana</h3><p class="role">Graduate Student</p></div></div>
+                <div class="person-card"><img src="images/stephen_nyan.jpg" alt=""><div class="person-info"><h3>Nyan Stephen</h3><p class="role">Graduate Student</p></div></div>
+                <div class="person-card"><img src="images/pranto_muied.jpg" alt=""><div class="person-info"><h3>Muied Pranto</h3><p class="role">Graduate Student</p></div></div>
+                <div class="person-card"><img src="images/wadanambi_padmika.jpg" alt=""><div class="person-info"><h3>Padmika Wadanambi</h3><p class="role">Graduate Student</p></div></div>
+                <div class="person-card"><img src="images/das_apu_kumar.jpg" alt=""><div class="person-info"><h3>Apu Kumar Das</h3><p class="role">Graduate Student</p></div></div>
+            </div>
+        </section>
+
+        <section class="people-section">
+            <h2 class="section-label">Undergraduate Students</h2>
+            <div class="person-column">
+                <div class="person-card"><img src="images/wang_emily.jpg" alt=""><div class="person-info"><h3>Emily Wang</h3><p class="role">Undergraduate Researcher</p></div></div>
+                <div class="person-card"><img src="images/bair_sydney.jpg" alt=""><div class="person-info"><h3>Sydney Bair</h3><p class="role">Undergraduate Researcher</p></div></div>
+                <div class="person-card"><img src="images/schnarre_makahla.jpg" alt=""><div class="person-info"><h3>Makahla Schnarre</h3><p class="role">Undergraduate Researcher</p></div></div>
+                <div class="person-card"><img src="images/omalley_collin.jpg" alt=""><div class="person-info"><h3>Collin O'Malley</h3><p class="role">Undergraduate Researcher</p></div></div>
+                <div class="person-card"><img src="images/obert_grace.jpg" alt=""><div class="person-info"><h3>Grace Obert</h3><p class="role">Undergraduate Researcher</p></div></div>
+                <div class="person-card"><img src="images/beran_samantha.jpg" alt=""><div class="person-info"><h3>Samantha Beran</h3><p class="role">Undergraduate Researcher</p></div></div>
+                <div class="person-card"><img src="images/stockdale_samantha.jpg" alt=""><div class="person-info"><h3>Samantha Stockdale</h3><p class="role">Undergraduate Researcher</p></div></div>
+                <div class="person-card"><img src="images/stokey_sam.jpg" alt=""><div class="person-info"><h3>Sam Stokey</h3><p class="role">Undergraduate Researcher</p></div></div>
+                <div class="person-card"><img src="images/wisevarver_beu.jpg" alt=""><div class="person-info"><h3>Beu Wisevarver</h3><p class="role">Undergraduate Researcher</p></div></div>
+                <div class="person-card"><img src="images/badnell_natalie.jpg" alt=""><div class="person-info"><h3>Natalie Badnell</h3><p class="role">Undergraduate Researcher</p></div></div>
+            </div>
+        </section>
+
+        <section class="people-section">
+            <h2 class="section-label">Mancini Group Alumni</h2>
+            <div class="alumni-content">
+                </div>
+        </section>
     </div>
 
-    <footer>
-        <p>&copy; 2026 The Mancini Group | WSU</p>
+    <footer class="site-footer">
+        <p>&copy; 2026 The Mancini Group | Miami University | Oxford, OH</p>
     </footer>
 
     <script>
-        fetch('/nav.html?v=' + Date.now()) 
+        fetch('nav.html?v=' + Date.now()) 
             .then(response => {
-                if (!response.ok) {
-                    throw new Error("HTTP error! Status: " + response.status);
-                }
+                if (!response.ok) throw new Error("HTTP error! Status: " + response.status);
                 return response.text();
             })
             .then(data => {
                 document.getElementById('nav-placeholder').innerHTML = data;
-                console.log("Navigation loaded successfully.");
             })
             .catch(error => {
                 console.error('Fetch error:', error);

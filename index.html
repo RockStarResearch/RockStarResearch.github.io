@@ -9,6 +9,71 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
     
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* Restoring the thin grey border and button styles */
+        .sidebar-card {
+            border: 1px solid #ddd !important;
+            padding: 20px;
+            border-radius: 8px;
+            background: white;
+            margin-bottom: 20px;
+        }
+
+        /* Research card: 50% wider (450px) and floated right */
+        .float-card {
+            float: right;
+            width: 450px;
+            margin-left: 30px;
+            margin-bottom: 20px;
+        }
+
+        .research-button-list {
+            list-style: none;
+            padding: 0;
+            margin: 15px 0 0 0;
+        }
+
+        .research-button-list li {
+            background-color: #a6192e; /* Miami Red */
+            color: white;
+            font-weight: bold;
+            text-align: center;
+            padding: 10px 15px;
+            margin-bottom: 10px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            display: block;
+        }
+
+        .research-button-list li:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Spacing and Alignment adjustments */
+        .tight-margin {
+            margin-bottom: 5px; 
+        }
+
+        .centered-headline {
+            text-align: center;
+            width: 100%;
+        }
+
+        /* Responsive fix */
+        @media (max-width: 900px) {
+            .float-card {
+                float: none;
+                width: 100%;
+                margin-left: 0;
+            }
+        }
+
+        .clearfix::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+    </style>
 </head>
 
 <body>
@@ -17,8 +82,8 @@
 
     <div class="container">
         <main>
-            <section class="intro-section">
-                <h2 class="intro-title">Welcome to the Mancini Lab</h2>
+            <section class="intro-section clearfix">
+                <h2 class="intro-title">Welcome to the Mancini Group!</h2>
                 
                 <div class="lab-description">
                     <p>
@@ -29,13 +94,22 @@
                     </p>
                     
                     <p>
-                        Our research in this area begins by seeking to better understand, at a fundamental molecular level, the role 
-                        of the immune system in various disease states. We ask questions like:
+                        Our research in this area begins by seeking to better understand how molecules instruct (and in some cases construct)
+                        the immune system. We ask questions like:
                     </p>
 
+                    <div class="sidebar-card float-card">
+                        <h3 style="margin-top:0;">Research Focus Areas</h3>
+                        <ul class="research-button-list">
+                            <li>Thermophobic Vaccine Adjuvants</li>
+                            <li>Bystander Assisted Immunotherapy</li>
+                            <li>Chaokosmotropic Polymers</li>
+                        </ul>
+                    </div>
+
                     <blockquote class="lab-quote">
-                        "What allows a tumor to first establish itself and evade immunosurveillance?" <br><br>
-                        "How do small molecules influence the efficacy of vaccines?" <br><br>
+                        "What molecular cues allow a tumor to evade immunosurveillance?" <br><br>
+                        "How does macromolecular shape influence the efficacy of vaccines?" <br><br>
                         "How can we exploit cancer cell metabolism to generate an anticancer immune response?" <br><br>
                         "Can we create a synthetic innate immune cell?"
                     </blockquote>
@@ -47,7 +121,7 @@
                         or visit our <a href="research.html" class="red-link no-border">research</a> section.
                     </p>
 
-                    <p>
+                    <p class="tight-margin">
                         Apart from our research, we are also influenced by our backgrounds. We are a highly diverse group of scientists 
                         coming together from around the globe from places as far away as Zimbabwe to local students right here in 
                         <strong>Oxford, OH</strong>. This diversity not only provides many different perspectives to our research, but also makes for 
@@ -60,65 +134,42 @@
                             to join our team. Researchers in the group are generally expected to lead a research project in consultation 
                             with their advisor.
                         </p>
-                        <p class="headline">
-                            Do you like the idea of having creative freedom to make groundbreaking scientific discoveries? 
-                            <br><span class="emphasis">You Can Do Great Chemistry Here!</span>
-                        </p>
+                        <div class="centered-headline">
+                            <p class="headline">
+                                Do you like the idea of having creative freedom to make groundbreaking scientific discoveries? 
+                                <br><span class="emphasis">You Can Do Great Chemistry Here!</span>
+                            </p>
+                        </div>
                     </div>
-
-                    <p>
-                        Stop over in our <a href="people.html" class="red-link no-border">people</a> section to meet some group members or drop us a 
-                        <a href="contact.html" class="red-link no-border">comment</a> to find out more.
-                    </p>
                 </div>
             </section>
 
             <section class="home-grid">
-                
-                <div class="sidebar-card">
-                    <h3>Research Focus Areas</h3>
-                    <ul class="research-button-list">
-                        <li>Thermophobic Vaccine Adjuvants</li>
-                        <li>Bystander Assisted Immunotherapy</li>
-                        <li>Chaokosmotropic Polymers</li>
-                    </ul>
+                <div class="sidebar-card alt-bg" style="width: 100%;">
+                    <h3>Join the Mancini Group</h3>
+                    <p>Stop over in our <a href="people.html">people</a> section to meet some group members or drop us a <a href="contact.html">comment</a> to find out more</p>
                 </div>
-
-                <div class="sidebar-card alt-bg">
-                    <h3>Join the Group</h3>
-                    <p class="small-text">Interested in joining the Mancini Lab at Miami University?</p>
-                    <ul class="styled-list">
-                        <li>Postdoctoral Fellows</li>
-                        <li>Graduate Students</li>
-                        <li>Undergraduate Researchers</li>
-                    </ul>
-                    <a href="contact.html" class="btn-contact">Get in Touch</a>
-                </div>
-
             </section>
         </main>
     </div>
 
     <footer class="site-footer">
-        <p>&copy; 2026 The Mancini Group | Miami University | Oxford, OH</p>
+        <p>&copy; 2026 The Mancini Group</p>
     </footer>
 
     <script>
         fetch('nav.html?v=' + Date.now()) 
             .then(response => {
-                if (!response.ok) {
-                    throw new Error("HTTP error! Status: " + response.status);
-                }
+                if (!response.ok) throw new Error("HTTP error! Status: " + response.status);
                 return response.text();
             })
             .then(data => {
                 document.getElementById('nav-placeholder').innerHTML = data;
-                console.log("Navigation loaded successfully.");
             })
             .catch(error => {
                 console.error('Fetch error:', error);
                 document.getElementById('nav-placeholder').innerHTML = 
-                    '<nav><a href="index.html">Home</a> | <a href="research.html">Research</a></nav>';
+                    '<nav><a href="index.html">Home</a> | <a href="people.html">People</a></nav>';
             });
     </script>
 

@@ -25,6 +25,8 @@
             border-radius: 8px;
             padding: 40px;
             box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+            /* Added scroll-margin to prevent the header from overlapping the card when jumping from the home page */
+            scroll-margin-top: 100px;
         }
 
         .research-card h2 {
@@ -127,7 +129,7 @@
 
         <div class="research-list">
             
-            <section class="research-card">
+            <section class="research-card" id="bait">
                 <h2>Bystander-Assisted Immunotherapy (BAIT)</h2>
                 <div class="research-gallery">
                     <div class="research-image-wrapper">
@@ -150,7 +152,7 @@
                 </div>
             </section>
 
-            <section class="research-card">
+            <section class="research-card" id="thermophobic">
                 <h2>Thermophobic Vaccine Adjuvants</h2>
                 <div class="research-gallery">
                     <div class="research-image-wrapper">
@@ -173,7 +175,7 @@
                 </div>
             </section>
 
-            <section class="research-card">
+            <section class="research-card" id="efflux">
                 <h2>Efflux-Optimized Immunostimulants</h2>
                 <div class="research-gallery">
                     <div class="research-image-wrapper">
@@ -196,7 +198,7 @@
                 </div>
             </section>
 
-            <section class="research-card">
+            <section class="research-card" id="sapc">
                 <h2>Synthetic Antigen Presenting Cells</h2>
                 <div class="research-gallery">
                     <div class="research-image-wrapper">
@@ -219,7 +221,7 @@
                 </div>
             </section>
 
-            <section class="research-card">
+            <section class="research-card" id="aai">
                 <h2>Amino Acid Immunostimulants</h2>
                 <div class="research-gallery">
                     <div class="research-image-wrapper">

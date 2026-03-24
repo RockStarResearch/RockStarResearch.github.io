@@ -19,12 +19,23 @@
             margin-bottom: 20px;
         }
 
+        /* Center header specifically for the bottom card */
+        .sidebar-card.alt-bg h3 {
+            text-align: center;
+        }
+
         /* Research card: 50% wider (450px) and floated right */
         .float-card {
             float: right;
             width: 450px;
             margin-left: 30px;
             margin-bottom: 20px;
+        }
+
+        /* Make main welcome title larger */
+        .intro-title {
+            font-size: 2.5rem; 
+            margin-bottom: 30px;
         }
 
         .research-button-list {
@@ -34,15 +45,24 @@
         }
 
         .research-button-list li {
+            margin-bottom: 10px;
+        }
+
+        .research-button-list a {
             background-color: #a6192e; /* Miami Red */
             color: white;
             font-weight: bold;
             text-align: center;
-            padding: 10px 15px;
-            margin-bottom: 10px;
+            padding: 12px 15px; /* Increased padding slightly */
             border-radius: 50px;
-            font-size: 0.85rem;
+            font-size: 1.05rem; /* Point 1: Made button text larger */
             display: block;
+            text-decoration: none;
+            transition: background-color 0.2s;
+        }
+
+        .research-button-list a:hover {
+            background-color: #8a1526;
         }
 
         .research-button-list li:last-child {
@@ -57,6 +77,17 @@
         .centered-headline {
             text-align: center;
             width: 100%;
+        }
+
+        /* Red link formatting for the bottom card */
+        .red-link {
+            color: #a6192e;
+            font-weight: bold;
+            text-decoration: none;
+        }
+        
+        .red-link:hover {
+            text-decoration: underline;
         }
 
         /* Responsive fix */
@@ -88,22 +119,24 @@
                 <div class="lab-description">
                     <p>
                         We are a diverse group of researchers that enjoy pursuing creative approaches to disrupt scientific paradigms. 
-                        Our research interests span topics that include <strong>polymer and organic chemistry</strong> as well as <strong>synthetic immunology</strong>. 
+                        Our research interests span topics that include <strong>polymer</strong> and <strong>organic chemistry</strong> as well as <strong>synthetic immunology</strong>. 
                         Currently our group is focused on creating the next generation of immunotherapies by synthesizing designer 
                         immune modulating materials that have unconventional mechanisms of action.
                     </p>
                     
                     <p>
                         Our research in this area begins by seeking to better understand how molecules instruct (and in some cases construct)
-                        the immune system. We ask questions like:
+                        the immune system. <br>We ask questions like:
                     </p>
 
                     <div class="sidebar-card float-card">
                         <h3 style="margin-top:0;">Research Focus Areas</h3>
                         <ul class="research-button-list">
-                            <li>Thermophobic Vaccine Adjuvants</li>
-                            <li>Bystander Assisted Immunotherapy</li>
-                            <li>Chaokosmotropic Polymers</li>
+                            <li><a href="research.html#bait">Bystander-Assisted Immunotherapy (BAIT)</a></li>
+                            <li><a href="research.html#thermophobic">Thermophobic Vaccine Adjuvants</a></li>
+                            <li><a href="research.html#efflux">Efflux-Optimized Immunostimulants</a></li>
+                            <li><a href="research.html#sapc">Synthetic Antigen Presenting Cells</a></li>
+                            <li><a href="research.html#aai">Amino Acid Immunostimulants</a></li>
                         </ul>
                     </div>
 
@@ -124,14 +157,14 @@
                     <p class="tight-margin">
                         Apart from our research, we are also influenced by our backgrounds. We are a highly diverse group of scientists 
                         coming together from around the globe from places as far away as Zimbabwe to local students right here in 
-                        <strong>Oxford, OH</strong>. This diversity not only provides many different perspectives to our research, but also makes for 
+                        Oxford, OH. This diversity not only provides many different perspectives to our research, but also makes for 
                         very interesting conversations around the dinner table at our group outings.
                     </p>
 
                     <div class="callout-box">
                         <p>
-                            We are currently looking for an <strong>exceptional postdoc</strong> and <strong>graduate student</strong> 
-                            to join our team. Researchers in the group are generally expected to lead a research project in consultation 
+                            We are currently looking for exceptionally motivated researchers to join our team. 
+                            Researchers in the group are generally expected to lead a research project in consultation 
                             with their advisor.
                         </p>
                         <div class="centered-headline">
@@ -147,7 +180,10 @@
             <section class="home-grid">
                 <div class="sidebar-card alt-bg" style="width: 100%;">
                     <h3>Join the Mancini Group</h3>
-                    <p>Stop over in our <a href="people.html">people</a> section to meet some group members or drop us a <a href="contact.html">comment</a> to find out more</p>
+                    <p style="text-align: center;">
+                        <a href="contact.html" class="red-link">Drop us a comment</a> to find out more or stop over in our 
+                        <a href="people.html" class="red-link">people section</a> to meet some group members
+                    </p>
                 </div>
             </section>
         </main>

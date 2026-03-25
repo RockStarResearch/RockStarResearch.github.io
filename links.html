@@ -3,13 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <title>Mancini Lab | Useful Links</title>
+    <meta name="description" content="Useful resources and academic links for the Mancini Group at Miami University.">
+    
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="shortcut icon" href="images/favicon.png" type="image/png">
+
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
     <link rel="stylesheet" href="style.css">
 
     <style>
-        /* SELECTIVE STICKINESS: Only the menu stays put, Hero scrolls */
+        /* Shared Fixed Navigation Styling */
         #nav-placeholder nav {
             position: fixed !important;
             top: 0 !important;
@@ -20,52 +26,115 @@
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
 
-        /* Pushes the Schlenk Hero image down so it doesn't hide behind the menu */
-        .hero-area {
-            margin-top: 85px !important; 
+        .links-container {
+            max-width: 700px;
+            margin: 120px auto 40px; /* Clears fixed navigation */
+            padding: 0 20px;
+        }
+
+        .links-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        /* Matches the 'Welcome' title style from index.html */
+        .intro-title {
+            font-size: 2.5rem; 
+            margin-bottom: 30px;
+            color: #333; /* The standard dark grey/black used in your layout */
+        }
+
+        /* Card Approach */
+        .link-card {
+            display: block;
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 20px;
+            text-decoration: none;
+            color: #333;
+            transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+        }
+
+        .link-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+            border-color: #a6192e;
+        }
+
+        .link-card h3 {
+            margin: 0;
+            color: #a6192e;
+            font-size: 1.3rem;
+        }
+
+        .link-card p {
+            margin: 12px 0 0;
+            line-height: 1.5;
+            color: #555;
+            font-size: 1rem;
         }
 
         body {
             margin: 0 !important;
             padding: 0 !important;
-        }
-
-        /* Links page specific spacing */
-        .container h1 {
-            margin-top: 50px;
-            text-align: center;
+            background-color: #f9f9f9; 
         }
     </style>
 </head>
+
 <body>
 
     <div id="nav-placeholder"></div>
 
     <div class="container">
-        <h1>Useful Links</h1>
-        <div class="main-layout">
-            <main style="flex: 0 0 100%;">
-                <h3>Academic & Research Resources</h3>
-                <ul class="pub-list">
-                    <li class="pub-item">
-                        <a href="https://scifinder.cas.org/" class="pub-title" target="_blank">Scifinder</a>
-                        <p>A comprehensive database for chemical literature, substances, and reaction searching.</p>
-                    </li>
-                    <li class="pub-item">
-                        <a href="https://www.webofscience.com/" class="pub-title" target="_blank">Web of Knowledge</a>
-                        <p>An essential platform for accessing citation databases and tracking multi-disciplinary research trends.</p>
-                    </li>
-                    <li class="pub-item">
-                        <a href="https://www.chem.rochester.edu/notvoodoo/" class="pub-title" target="_blank">NotVooDoo</a>
-                        <p>An invaluable resource for practical tips, techniques, and troubleshooting in the organic chemistry laboratory.</p>
-                    </li>
-                    <li class="pub-item">
-                        <a href="https://www.zotero.org/" class="pub-title" target="_blank">Zotero</a>
-                        <p>A free, easy-to-use tool to help you collect, organize, cite, and share your research sources.</p>
-                    </li>
-                </ul>
-            </main>
-        </div>
+        <main class="links-container">
+            <div class="links-header">
+                <h2 class="intro-title">Useful Links</h2>
+            </div>
+
+            <a href="https://www.chem.rochester.edu/notvoodoo/" class="link-card" target="_blank">
+                <h3>NotVooDoo</h3>
+                <p>An invaluable resource for practical tips, techniques, and troubleshooting in the organic chemistry laboratory.</p>
+            </a>
+
+            <a href="https://floreada.io/" class="link-card" target="_blank">
+                <h3>Floreada.io</h3>
+                <p>A powerful, browser-based tool for analyzing flow cytometry data.</p>
+            </a>
+
+            <a href="https://www.thermofisher.com/order/fluorescence-spectraviewer/#!/" class="link-card" target="_blank">
+                <h3>Fluorescence SpectraViewer</h3>
+                <p>The ThermoFisher tool for plotting and comparing excitation and emission spectra for fluorophores and filters.</p>
+            </a>
+
+            <a href="https://opig.stats.ox.ac.uk/webapps/sabdab-sabpred/sabpred" class="link-card" target="_blank">
+                <h3>SAbPred</h3>
+                <p>The Structural Antibody Prediction toolbox; used for modeling antibody structures and predicting interactions.</p>
+            </a>
+
+            <a href="https://scifinder.cas.org/" class="link-card" target="_blank">
+                <h3>SciFinder</h3>
+                <p>A comprehensive database for chemical literature, substances, and reaction searching.</p>
+            </a>
+
+            <a href="https://www.webofscience.com/" class="link-card" target="_blank">
+                <h3>Web of Knowledge</h3>
+                <p>An essential platform for accessing citation databases and tracking multi-disciplinary research trends.</p>
+            </a>
+
+            <a href="https://www.zotero.org/" class="link-card" target="_blank">
+                <h3>Zotero</h3>
+                <p>A free, easy-to-use tool to help you collect, organize, cite, and share your research sources.</p>
+            </a>
+
+            <a href="https://www.miamioh.edu/cas/academics/departments/chemistry-biochemistry/" class="link-card" target="_blank">
+                <h3>Miami University Chemistry</h3>
+                <p>The Department of Chemistry and Biochemistry home page at Miami University.</p>
+            </a>
+
+        </main>
     </div>
 
     <footer class="site-footer">
@@ -73,21 +142,20 @@
     </footer>
 
     <script>
-        const navUrl = 'nav.html?v=' + Date.now();
-        fetch(navUrl) 
+        fetch('nav.html?v=' + Date.now()) 
             .then(response => {
                 if (!response.ok) throw new Error("HTTP error! Status: " + response.status);
                 return response.text();
             })
             .then(data => {
                 document.getElementById('nav-placeholder').innerHTML = data;
-                console.log("Navigation loaded successfully.");
             })
             .catch(error => {
                 console.error('Fetch error:', error);
                 document.getElementById('nav-placeholder').innerHTML = 
-                    '<nav style="padding:20px; text-align:center; background:#eee;"><a href="index.html">Home</a> | <a href="links.html">Links</a></nav>';
+                    '<nav style="padding:20px; text-align:center; background:#eee;"><a href="index.html">Home</a> | <a href="people.html">People</a></nav>';
             });
     </script>
+
 </body>
 </html>

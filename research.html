@@ -4,122 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mancini Lab | Research</title>
+    
+    <meta name="description" content="Explore the research focus of the Mancini Lab at Miami University, specializing in Synthetic Immunology and cancer therapy.">
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="shortcut icon" href="images/favicon.png" type="image/png">
+
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
     <link rel="stylesheet" href="style.css">
-    
-    <style>
-        /* Ensures the injected Hero image doesn't hide behind the fixed menu */
-        .hero-area {
-            margin-top: 85px !important; 
-        }
-
-        /* Research Page specific layout */
-        .research-list {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 40px;
-            margin-top: 40px;
-            margin-bottom: 60px;
-        }
-
-        .research-card {
-            width: 75%;
-            background: #fff;
-            border: 1px solid #dcdcdc; 
-            border-radius: 8px;
-            padding: 40px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
-            scroll-margin-top: 100px;
-        }
-
-        .research-card h2 {
-            color: #a6192e;
-            margin-top: 0;
-            font-size: 1.8rem;
-            border-bottom: 2px solid #f8f8f8;
-            padding-bottom: 12px;
-            margin-bottom: 20px;
-        }
-
-        .research-content {
-            font-size: 1.1rem;
-            line-height: 1.6;
-            color: #333;
-            margin-top: 25px;
-        }
-
-        /* Inline Dropdown Styling */
-        details { display: inline; }
-        details summary {
-            display: inline;
-            cursor: pointer;
-            color: #a6192e;
-            font-weight: 700;
-            outline: none;
-            list-style: none;
-        }
-        details summary::-webkit-details-marker { display: none; }
-        details summary::after {
-            content: " [Read More]";
-            font-size: 1rem;
-            text-decoration: underline;
-        }
-        details[open] summary::after { content: " [Show Less]"; }
-
-        .hypothesis-text {
-            display: block;
-            margin-top: 20px;
-            padding: 25px;
-            background-color: #f9f9f9;
-            border-left: 4px solid #a6192e;
-            border-radius: 4px;
-        }
-
-        .research-gallery {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 25px;
-            margin-bottom: 20px;
-            justify-content: center;
-        }
-
-        .research-image-wrapper {
-            flex: 1;
-            min-width: 300px;
-            max-width: 100%;
-        }
-
-        .research-image-wrapper img {
-            width: 100%;
-            height: auto;
-            border-radius: 4px;
-            border: 1px solid #eee;
-        }
-
-        .image-caption {
-            font-size: 0.95rem;
-            color: #444;
-            font-style: italic;
-            margin-top: 15px;
-            text-align: center;
-            line-height: 1.4;
-        }
-
-        @media (max-width: 900px) {
-            .research-card { width: 90%; padding: 25px; }
-        }
-    </style>
 </head>
 <body>
 
     <div id="nav-placeholder"></div>
 
     <div class="container">
-        <header style="text-align: center; margin-top: 50px;">
-            <h1 class="intro-title">Research Overview</h1>
-            <p style="font-size: 1.2rem; color: #555;">Pushing the boundaries of Synthetic Immunology</p>
+        <header style="text-align: center; margin-top: 50px; border-bottom: none; display: block;">
+            <h1 class="intro-title" style="font-size: 2.5rem; margin-bottom: 10px;">Research Overview</h1>
+            <p style="font-size: 1.4rem; color: #555; margin-top: 0; font-style: italic;">Hacking Immune Programs Since 2015</p>
         </header>
 
         <div class="research-list">
@@ -243,7 +144,7 @@
     </div>
 
     <footer class="site-footer">
-        <p>&copy; 2026 The Mancini Group | Miami University | Oxford, OH</p>
+        <p>&copy; 2026 The Mancini Group</p>
     </footer>
 
     <script>
@@ -258,7 +159,7 @@
             .catch(error => {
                 console.error('Fetch error:', error);
                 document.getElementById('nav-placeholder').innerHTML = 
-                    '<nav style="padding:20px; text-align:center; background:#eee;"><a href="index.html">Home</a> | <a href="research.html">Research</a></nav>';
+                    '<nav style="padding:20px; text-align:center; background:#eee;"><a href="index.html">Home</a> | <a href="people.html">People</a></nav>';
             });
     </script>
 </body>

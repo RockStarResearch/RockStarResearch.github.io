@@ -4,54 +4,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mancini Lab | Contact Us</title>
+    
+    <meta name="description" content="Get in touch with the Mancini Lab at Miami University. Find our email, mailing address, and laboratory location in Hughes Laboratories.">
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="shortcut icon" href="images/favicon.png" type="image/png">
+
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
     <link rel="stylesheet" href="style.css">
-
-    <style>
-        /* Ensures the injected Hero image doesn't hide behind the sticky menu */
-        .hero-area {
-            margin-top: 85px !important; 
-        }
-
-        /* Contact page specific layout tweaks */
-        .container h1 {
-            margin-top: 50px;
-            text-align: center;
-        }
-        
-        aside h3 {
-            margin-top: 0;
-        }
-
-        .main-layout {
-            display: flex;
-            gap: 40px;
-            margin-top: 30px;
-        }
-
-        @media (max-width: 768px) {
-            .main-layout {
-                flex-direction: column;
-            }
-        }
-    </style>
 </head>
 <body>
 
     <div id="nav-placeholder"></div>
     
     <div class="container">
-        <h1>Contact Us</h1>
+        <header style="text-align: center; margin-top: 50px; border-bottom: none; display: block;">
+            <h1 class="intro-title" style="font-size: 2.5rem; margin-bottom: 10px; color: #333;">Contact Us</h1>
+            <p style="font-size: 1.4rem; color: #555; margin-top: 0; font-style: italic;">
+                We look forward to hearing from you - <span style="color: var(--miami-red); font-weight: normal;">Love and Honor!</span>
+            </p>
+        </header>
+
         <div class="main-layout">
-            <main style="flex: 1;">
-                <h3>Email</h3>
-                <p>Primary Contact: <a href="mailto:MancinR@miamioh.edu">MancinR@miamioh.edu</a></p>
+            <main>
+                <h3 style="color: #333;">Email</h3>
+                <p style="color: #333;">Primary Contact: <a href="mailto:MancinR@miamioh.edu" style="color: var(--miami-red); font-weight: bold; text-decoration: none;">MancinR@miamioh.edu</a></p>
 
                 <br>
 
-                <h3>Mailing Address</h3>
-                <p>
+                <h3 style="color: #333;">Mailing Address</h3>
+                <p style="line-height: 1.8; color: #333;">
                     <strong>Mancini Group</strong><br>
                     254 Hughes Laboratories<br>
                     Miami University<br>
@@ -59,9 +41,9 @@
                 </p>
             </main>
 
-            <aside style="flex: 1;">
-                <h3>Visit Us</h3>
-                <div style="width: 100%; border: 1px solid #ddd; border-radius: 8px; overflow: hidden; line-height: 0;">
+            <aside>
+                <h3 style="color: #333;">Visit Us</h3>
+                <div class="map-container">
                     <iframe 
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3084.711867160751!2d-84.73541452349544!3d39.50953681024621!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88403d157a3e8957%3A0x633513a96756816a!2sHughes%20Laboratories!5e0!3m2!1sen!2sus!4v1710000000000!5m2!1sen!2sus" 
                         width="100%" 
@@ -72,21 +54,20 @@
                         referrerpolicy="no-referrer-when-downgrade">
                     </iframe>
                 </div>
-                <p style="font-size: 0.9rem; color: #666; margin-top: 10px; text-align: center;">
-                    <a href="https://maps.app.goo.gl/vS6pY68m2kQy9rW4A" target="_blank" style="color: #a6192e;">Open in Google Maps</a>
+                <p style="font-size: 0.9rem; color: #666; margin-top: 15px; text-align: center;">
+                    <a href="https://maps.app.goo.gl/vS6pY68m2kQy9rW4A" target="_blank" style="color: var(--miami-red); font-weight: bold; text-decoration: none;">Open in Google Maps</a>
                 </p>
             </aside>
         </div>
     </div>
 
     <footer class="site-footer">
-        <p>&copy; 2026 The Mancini Group | Miami University</p>
+        <p>© 2026 The Mancini Group</p>
     </footer>
 
     <script>
         // Load Navigation with cache-busting
-        const navUrl = 'nav.html?v=' + Date.now();
-        fetch(navUrl) 
+        fetch('nav.html?v=' + Date.now()) 
             .then(response => {
                 if (!response.ok) throw new Error("Nav load failed");
                 return response.text();
@@ -97,7 +78,7 @@
             .catch(error => {
                 console.error('Fetch error:', error);
                 document.getElementById('nav-placeholder').innerHTML = 
-                    '<nav style="padding:20px; text-align:center; background:#eee;"><a href="index.html">Home</a> | <a href="contact.html">Contact</a></nav>';
+                    '<nav style="padding:20px; text-align:center; background:#eee;"><a href="index.html">Home</a> | <a href="people.html">People</a> | <a href="contact.html">Contact</a></nav>';
             });
     </script>
 </body>

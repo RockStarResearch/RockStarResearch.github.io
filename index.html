@@ -3,103 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <title>Mancini Lab | Home</title>
+    <meta name="description" content="The Mancini Group at Miami University focuses on synthetic immunology, polymer chemistry, and organic synthesis to create next-generation immunotherapies.">
+    <meta name="keywords" content="Mancini Lab, Synthetic Immunology, Polymer Chemistry, Miami University, Immunotherapy, BAIT, Vaccine Adjuvants">
+    <meta name="author" content="The Mancini Group">
+
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="shortcut icon" href="images/favicon.png" type="image/png">
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
-    
     <link rel="stylesheet" href="style.css">
-    <style>
-        /* Ensures content/hero starts below the fixed navigation menu */
-        .hero-area {
-            margin-top: 85px !important; 
-        }
-
-        /* Your specific layout styles preserved exactly */
-        .sidebar-card {
-            border: 1px solid #ddd !important;
-            padding: 20px;
-            border-radius: 8px;
-            background: white;
-            margin-bottom: 20px;
-        }
-
-        .sidebar-card.alt-bg h3 {
-            text-align: center;
-        }
-
-        .float-card {
-            float: right;
-            width: 450px;
-            margin-left: 30px;
-            margin-bottom: 20px;
-        }
-
-        .intro-title {
-            font-size: 2.5rem; 
-            margin-bottom: 30px;
-        }
-
-        .research-button-list {
-            list-style: none;
-            padding: 0;
-            margin: 15px 0 0 0;
-        }
-
-        .research-button-list li {
-            margin-bottom: 10px;
-        }
-
-        .research-button-list a {
-            background-color: #a6192e; 
-            color: white;
-            font-weight: bold;
-            text-align: center;
-            padding: 12px 15px;
-            border-radius: 50px;
-            font-size: 1.05rem;
-            display: block;
-            text-decoration: none;
-            transition: background-color 0.2s;
-        }
-
-        .research-button-list a:hover {
-            background-color: #8a1526;
-        }
-
-        .tight-margin {
-            margin-bottom: 5px; 
-        }
-
-        .centered-headline {
-            text-align: center;
-            width: 100%;
-        }
-
-        .red-link {
-            color: #a6192e;
-            font-weight: bold;
-            text-decoration: none;
-        }
-        
-        .red-link:hover {
-            text-decoration: underline;
-        }
-
-        @media (max-width: 900px) {
-            .float-card {
-                float: none;
-                width: 100%;
-                margin-left: 0;
-            }
-        }
-
-        .clearfix::after {
-            content: "";
-            clear: both;
-            display: table;
-        }
-    </style>
 </head>
 
 <body>
@@ -107,10 +22,13 @@
     <div id="nav-placeholder"></div>
 
     <div class="container">
+        <header style="text-align: center; margin-top: 50px; border-bottom: none; display: block;">
+            <h1 class="intro-title" style="font-size: 2.5rem; margin-bottom: 10px; color: #333;">Welcome to the Mancini Group!</h1>
+            <p style="font-size: 1.4rem; color: #555; margin-top: 0; font-style: italic;">Hacking Immune Programs Since 2015</p>
+        </header>
+
         <main>
             <section class="intro-section clearfix">
-                <h2 class="intro-title">Welcome to the Mancini Group!</h2>
-                
                 <div class="lab-description">
                     <p>
                         We are a diverse group of researchers that enjoy pursuing creative approaches to disrupt scientific paradigms. 
@@ -137,21 +55,21 @@
 
                     <blockquote class="lab-quote">
                         "What molecular cues allow a tumor to evade immunosurveillance?" <br><br>
-                        "How does macromolecular shape influence the efficacy of vaccines?" <br><br>
-                        "How can we exploit cancer cell metabolism to generate an anticancer immune response?" <br><br>
-                        "Can we create a synthetic innate immune cell?"
+                        "How does macromolecular shape influence vaccine efficacy and safety?" <br><br>
+                        "Can we couple an immune response to the cancer cell metabolism?" <br><br>
+                        "What new chemistry is needed to create a synthetic immune cell?"
                     </blockquote>
 
                     <p>
                         To answer each of these questions we require the synthesis of new molecules, and in some cases, the 
-                        development of new synthetic methodologies. For a scientific discussion of our approach to these paradigms 
-                        we invite you to peruse some of our <a href="publications.html" class="red-link no-border">publications</a> 
-                        or visit our <a href="research.html" class="red-link no-border">research</a> section.
+                        development of new synthetic methodologies or experimental techniques. For a scientific discussion of our approach to these paradigms 
+                        we invite you to peruse some of our <a href="publications.html" class="red-link">publications</a> 
+                        or visit our <a href="research.html" class="red-link">research</a> section.
                     </p>
 
                     <p class="tight-margin">
                         Apart from our research, we are also influenced by our backgrounds. We are a highly diverse group of scientists 
-                        coming together from around the globe from places as far away as Zimbabwe to local students right here in 
+                        coming together from around the globe from places as far away as Zimbabwe and Bangladesh to local students right here in 
                         Oxford, OH. This diversity not only provides many different perspectives to our research, but also makes for 
                         very interesting conversations around the dinner table at our group outings.
                     </p>
@@ -177,7 +95,7 @@
                     <h3>Join the Mancini Group</h3>
                     <p style="text-align: center;">
                         <a href="contact.html" class="red-link">Drop us a comment</a> to find out more or stop over in our 
-                        <a href="people.html" class="red-link">people section</a> to meet some group members
+                        <a href="people.html" class="red-link">people section</a> to meet some group members.
                     </p>
                 </div>
             </section>
@@ -191,7 +109,7 @@
     <script>
         fetch('nav.html?v=' + Date.now()) 
             .then(response => {
-                if (!response.ok) throw new Error("HTTP error! Status: " + response.status);
+                if (!response.ok) throw new Error("Nav load failed");
                 return response.text();
             })
             .then(data => {
@@ -200,7 +118,7 @@
             .catch(error => {
                 console.error('Fetch error:', error);
                 document.getElementById('nav-placeholder').innerHTML = 
-                    '<nav style="padding:20px; text-align:center; background:#eee;"><a href="index.html">Home</a> | <a href="people.html">People</a></nav>';
+                    '<nav style="padding:20px; text-align:center; background:#eee;"><a href="index.html">Home</a> | <a href="people.html">People</a> | <a href="publications.html">Publications</a></nav>';
             });
     </script>
 

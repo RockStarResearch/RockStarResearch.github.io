@@ -10,7 +10,12 @@
     
     <link rel="stylesheet" href="style.css">
     <style>
-        /* Restoring the thin grey border and button styles */
+        /* Ensures content/hero starts below the fixed navigation menu */
+        .hero-area {
+            margin-top: 85px !important; 
+        }
+
+        /* Your specific layout styles preserved exactly */
         .sidebar-card {
             border: 1px solid #ddd !important;
             padding: 20px;
@@ -19,12 +24,10 @@
             margin-bottom: 20px;
         }
 
-        /* Center header specifically for the bottom card */
         .sidebar-card.alt-bg h3 {
             text-align: center;
         }
 
-        /* Research card: 50% wider (450px) and floated right */
         .float-card {
             float: right;
             width: 450px;
@@ -32,7 +35,6 @@
             margin-bottom: 20px;
         }
 
-        /* Make main welcome title larger */
         .intro-title {
             font-size: 2.5rem; 
             margin-bottom: 30px;
@@ -49,13 +51,13 @@
         }
 
         .research-button-list a {
-            background-color: #a6192e; /* Miami Red */
+            background-color: #a6192e; 
             color: white;
             font-weight: bold;
             text-align: center;
-            padding: 12px 15px; /* Increased padding slightly */
+            padding: 12px 15px;
             border-radius: 50px;
-            font-size: 1.05rem; /* Point 1: Made button text larger */
+            font-size: 1.05rem;
             display: block;
             text-decoration: none;
             transition: background-color 0.2s;
@@ -65,11 +67,6 @@
             background-color: #8a1526;
         }
 
-        .research-button-list li:last-child {
-            margin-bottom: 0;
-        }
-
-        /* Spacing and Alignment adjustments */
         .tight-margin {
             margin-bottom: 5px; 
         }
@@ -79,7 +76,6 @@
             width: 100%;
         }
 
-        /* Red link formatting for the bottom card */
         .red-link {
             color: #a6192e;
             font-weight: bold;
@@ -90,7 +86,6 @@
             text-decoration: underline;
         }
 
-        /* Responsive fix */
         @media (max-width: 900px) {
             .float-card {
                 float: none;
@@ -205,7 +200,7 @@
             .catch(error => {
                 console.error('Fetch error:', error);
                 document.getElementById('nav-placeholder').innerHTML = 
-                    '<nav><a href="index.html">Home</a> | <a href="people.html">People</a></nav>';
+                    '<nav style="padding:20px; text-align:center; background:#eee;"><a href="index.html">Home</a> | <a href="people.html">People</a></nav>';
             });
     </script>
 

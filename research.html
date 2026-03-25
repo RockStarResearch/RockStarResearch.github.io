@@ -9,6 +9,12 @@
     <link rel="stylesheet" href="style.css">
     
     <style>
+        /* Ensures the injected Hero image doesn't hide behind the fixed menu */
+        .hero-area {
+            margin-top: 85px !important; 
+        }
+
+        /* Research Page specific layout */
         .research-list {
             display: flex;
             flex-direction: column;
@@ -25,7 +31,6 @@
             border-radius: 8px;
             padding: 40px;
             box-shadow: 0 2px 8px rgba(0,0,0,0.03);
-            /* Added scroll-margin to prevent the header from overlapping the card when jumping from the home page */
             scroll-margin-top: 100px;
         }
 
@@ -46,10 +51,7 @@
         }
 
         /* Inline Dropdown Styling */
-        details {
-            display: inline;
-        }
-
+        details { display: inline; }
         details summary {
             display: inline;
             cursor: pointer;
@@ -58,20 +60,13 @@
             outline: none;
             list-style: none;
         }
-
-        details summary::-webkit-details-marker {
-            display: none;
-        }
-
+        details summary::-webkit-details-marker { display: none; }
         details summary::after {
             content: " [Read More]";
             font-size: 1rem;
             text-decoration: underline;
         }
-
-        details[open] summary::after {
-            content: " [Show Less]";
-        }
+        details[open] summary::after { content: " [Show Less]"; }
 
         .hypothesis-text {
             display: block;
@@ -248,7 +243,7 @@
     </div>
 
     <footer class="site-footer">
-        <p>&copy; 2026 The Mancini Group</p>
+        <p>&copy; 2026 The Mancini Group | Miami University | Oxford, OH</p>
     </footer>
 
     <script>
@@ -262,6 +257,8 @@
             })
             .catch(error => {
                 console.error('Fetch error:', error);
+                document.getElementById('nav-placeholder').innerHTML = 
+                    '<nav style="padding:20px; text-align:center; background:#eee;"><a href="index.html">Home</a> | <a href="research.html">Research</a></nav>';
             });
     </script>
 </body>

@@ -10,6 +10,12 @@
     <link rel="stylesheet" href="style.css">
     
     <style>
+        /* Ensures the injected Hero image doesn't hide behind the sticky menu */
+        .hero-area {
+            margin-top: 85px !important; 
+        }
+
+        /* Publication Page specific styles - kept here for local layout control */
         .pub-list { margin-top: 30px; }
         .pub-card {
             display: flex;
@@ -79,10 +85,20 @@
     </footer>
 
     <script>
-        // 1. Load Navigation
-        fetch('nav.html?v=' + Date.now()) 
-            .then(response => response.text())
-            .then(data => { document.getElementById('nav-placeholder').innerHTML = data; });
+        // 1. Load Navigation with cache-busting and standardized error handling
+        const navUrl = 'nav.html?v=' + Date.now();
+        fetch(navUrl) 
+            .then(response => {
+                if (!response.ok) throw new Error("Nav load failed");
+                return response.text();
+            })
+            .then(data => { 
+                document.getElementById('nav-placeholder').innerHTML = data; 
+            })
+            .catch(err => {
+                document.getElementById('nav-placeholder').innerHTML = 
+                    '<nav style="padding:20px; text-align:center; background:#eee;"><a href="index.html">Home</a> | <a href="publications.html">Publications</a></nav>';
+            });
 
         // 2. Master DOI List
         const rawDois = [
@@ -144,7 +160,7 @@
             for (const doi of rawDois) {
                 try {
                     const cleanDoi = doi.replace("https://doi.org/", "").trim();
-                    await new Promise(resolve => setTimeout(resolve, 150));
+                    await new Promise(resolve => setTimeout(resolve, 150)); // Prevent rate limiting
 
                     const response = await fetch(`https://api.crossref.org/works/${cleanDoi}`);
                     if (!response.ok) throw new Error(`Fetch failed for ${cleanDoi}`);
@@ -152,15 +168,10 @@
                     const data = await response.json();
                     const item = data.message;
 
-                    // Standardizing suffix to lowercase to match file naming convention
                     const doiParts = cleanDoi.split('/');
                     const doiSuffix = doiParts[doiParts.length - 1].toLowerCase();
                     
-                    // Using ./ to ensure pathing is relative to the root accurately
                     const tocPath = `./images/TOCs/${doiSuffix}.jpg`;
-
-                    console.log(`🔍 Attempting to load: ${tocPath}`);
-
                     container.appendChild(createCard(item, tocPath));
 
                 } catch (e) {

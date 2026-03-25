@@ -7,6 +7,35 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
     <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* Ensures the injected Hero image doesn't hide behind the sticky menu */
+        .hero-area {
+            margin-top: 85px !important; 
+        }
+
+        /* Contact page specific layout tweaks */
+        .container h1 {
+            margin-top: 50px;
+            text-align: center;
+        }
+        
+        aside h3 {
+            margin-top: 0;
+        }
+
+        .main-layout {
+            display: flex;
+            gap: 40px;
+            margin-top: 30px;
+        }
+
+        @media (max-width: 768px) {
+            .main-layout {
+                flex-direction: column;
+            }
+        }
+    </style>
 </head>
 <body>
 
@@ -15,7 +44,7 @@
     <div class="container">
         <h1>Contact Us</h1>
         <div class="main-layout">
-            <main>
+            <main style="flex: 1;">
                 <h3>Email</h3>
                 <p>Primary Contact: <a href="mailto:MancinR@miamioh.edu">MancinR@miamioh.edu</a></p>
 
@@ -30,7 +59,7 @@
                 </p>
             </main>
 
-            <aside>
+            <aside style="flex: 1;">
                 <h3>Visit Us</h3>
                 <div style="width: 100%; border: 1px solid #ddd; border-radius: 8px; overflow: hidden; line-height: 0;">
                     <iframe 
@@ -51,15 +80,15 @@
     </div>
 
     <footer class="site-footer">
-        <p>&copy; 2026 The Mancini Group</p>
+        <p>&copy; 2026 The Mancini Group | Miami University</p>
     </footer>
 
     <script>
-        fetch('nav.html?v=' + Date.now()) 
+        // Load Navigation with cache-busting
+        const navUrl = 'nav.html?v=' + Date.now();
+        fetch(navUrl) 
             .then(response => {
-                if (!response.ok) {
-                    throw new Error("HTTP error! Status: " + response.status);
-                }
+                if (!response.ok) throw new Error("Nav load failed");
                 return response.text();
             })
             .then(data => {
@@ -68,7 +97,7 @@
             .catch(error => {
                 console.error('Fetch error:', error);
                 document.getElementById('nav-placeholder').innerHTML = 
-                    '<nav><a href="index.html">Home</a> | <a href="contact.html">Contact</a></nav>';
+                    '<nav style="padding:20px; text-align:center; background:#eee;"><a href="index.html">Home</a> | <a href="contact.html">Contact</a></nav>';
             });
     </script>
 </body>

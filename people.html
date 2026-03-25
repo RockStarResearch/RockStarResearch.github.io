@@ -7,6 +7,12 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* Ensures content/hero starts below the fixed navigation menu */
+        .hero-area {
+            margin-top: 85px !important; 
+        }
+    </style>
 </head>
 <body>
 
@@ -91,7 +97,7 @@
             .catch(error => {
                 console.error('Fetch error:', error);
                 document.getElementById('nav-placeholder').innerHTML = 
-                    '<nav><a href="index.html">Home</a> | <a href="people.html">People</a></nav>';
+                    '<nav style="padding:20px; text-align:center; background:#eee;"><a href="index.html">Home</a> | <a href="people.html">People</a></nav>';
             });
     </script>
 </body>

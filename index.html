@@ -6,40 +6,135 @@
     
     <title>Mancini Lab | Home</title>
     <meta name="description" content="The Mancini Group at Miami University focuses on synthetic immunology, polymer chemistry, and organic synthesis to create next-generation immunotherapies.">
-    <meta name="keywords" content="Mancini Lab, Synthetic Immunology, Polymer Chemistry, Miami University, Immunotherapy, BAIT, Vaccine Adjuvants">
-    <meta name="author" content="The Mancini Group">
-
     <link rel="icon" type="image/png" href="images/favicon.png">
-    <link rel="shortcut icon" href="images/favicon.png" type="image/png">
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
     <link rel="stylesheet" href="style.css">
+
+    <style>
+        .sidebar-card {
+            border: 1px solid #ddd !important;
+            padding: 20px;
+            border-radius: 8px;
+            background: white;
+            margin-bottom: 20px;
+        }
+
+        .float-card {
+            float: right;
+            width: 450px;
+            margin-left: 30px;
+            margin-bottom: 20px;
+        }
+
+        .research-button-list {
+            list-style: none;
+            padding: 0;
+            margin: 15px 0 0 0;
+        }
+
+        .research-button-list li {
+            margin-bottom: 10px;
+        }
+
+        .research-button-list a {
+            background-color: #a6192e; 
+            color: white;
+            font-weight: bold;
+            text-align: center;
+            padding: 12px 15px;
+            border-radius: 50px;
+            font-size: 1.05rem;
+            display: block;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .research-button-list a:hover {
+            background-color: #8a1526;
+            transform: scale(1.05);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .red-link {
+            color: #a6192e;
+            font-weight: bold;
+            text-decoration: none;
+        }
+        
+        .red-link:hover {
+            text-decoration: underline;
+        }
+
+        .lab-quote {
+            border-left: 5px solid #a6192e;
+            padding-left: 20px;
+            margin: 30px 0;
+            font-style: italic;
+            color: #555;
+        }
+
+        /* Recruitment Section Styling */
+        .recruitment-box {
+            margin-top: 40px;
+            border-top: 1px solid #eee;
+            padding-top: 30px;
+        }
+
+        .centered-line {
+            display: block;
+            text-align: center;
+            margin: 15px 0;
+        }
+
+        .great-chemistry-callout {
+            color: #a6192e;
+            font-weight: bold;
+            font-size: 2rem; /* Significantly larger */
+            text-align: center;
+            display: block;
+            margin-top: 20px;
+        }
+
+        @media (max-width: 900px) {
+            .float-card {
+                float: none;
+                width: 100%;
+                margin-left: 0;
+            }
+        }
+
+        .clearfix::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+    </style>
 </head>
 
 <body>
 
-    <div id="nav-placeholder"></div>
+    <div id="new-menu-area"></div>
+
+    <div class="lab-hero-scroll"></div>
 
     <div class="container">
-        <header style="text-align: center; margin-top: 50px; border-bottom: none; display: block;">
-            <h1 class="intro-title" style="font-size: 2.5rem; margin-bottom: 10px; color: #333;">Welcome to the Mancini Group!</h1>
+        
+        <header style="text-align: center; margin-top: 40px; display: block;">
+            <h1 style="font-size: 2.5rem; margin-bottom: 10px; color: #333;">Welcome to the Mancini Group!</h1>
             <p style="font-size: 1.4rem; color: #555; margin-top: 0; font-style: italic;">Hacking Immune Programs Since 2015</p>
         </header>
 
         <main>
-            <section class="intro-section clearfix">
+            <section class="intro-section clearfix" style="margin-top: 40px;">
                 <div class="lab-description">
+                    
                     <p>
                         We are a diverse group of researchers that enjoy pursuing creative approaches to disrupt scientific paradigms. 
                         Our research interests span topics that include <strong>polymer</strong> and <strong>organic chemistry</strong> as well as <strong>synthetic immunology</strong>. 
                         Currently our group is focused on creating the next generation of immunotherapies by synthesizing designer 
                         immune modulating materials that have unconventional mechanisms of action.
-                    </p>
-                    
-                    <p>
-                        Our research in this area begins by seeking to better understand how molecules instruct (and in some cases construct)
-                        the immune system. <br>We ask questions like:
                     </p>
 
                     <div class="sidebar-card float-card">
@@ -67,33 +162,32 @@
                         or visit our <a href="research.html" class="red-link">research</a> section.
                     </p>
 
-                    <p class="tight-margin">
+                    <p>
                         Apart from our research, we are also influenced by our backgrounds. We are a highly diverse group of scientists 
                         coming together from around the globe from places as far away as Zimbabwe and Bangladesh to local students right here in 
                         Oxford, OH. This diversity not only provides many different perspectives to our research, but also makes for 
-                        very interesting conversations around the dinner table at our group outings.
+                        very interesting conversations around the dinner table at our group outings. 
+                        <strong>We are currently looking for exceptionally motivated researchers to join our team.</strong>
                     </p>
 
-                    <div class="callout-box">
-                        <p>
-                            We are currently looking for exceptionally motivated researchers to join our team. 
-                            Researchers in the group are generally expected to lead a research project in consultation 
-                            with their advisor.
-                        </p>
-                        <div class="centered-headline">
-                            <p class="headline">
-                                Do you like the idea of having creative freedom to make groundbreaking scientific discoveries? 
-                                <br><span class="emphasis">You Can Do Great Chemistry Here!</span>
-                            </p>
-                        </div>
+                    <div class="recruitment-box">
+                        <span class="centered-line">
+                            Researchers in the group are generally expected to lead a research project in consultation with their advisor.
+                        </span>
+                        <span class="centered-line" style="font-weight: bold;">
+                            Do you like the idea of having creative freedom to make groundbreaking scientific discoveries? If so...
+                        </span>
+                        <span class="great-chemistry-callout">
+                            You Can Do Great Chemistry Here!
+                        </span>
                     </div>
                 </div>
             </section>
 
-            <section class="home-grid">
-                <div class="sidebar-card alt-bg" style="width: 100%;">
-                    <h3>Join the Mancini Group</h3>
-                    <p style="text-align: center;">
+            <section class="home-grid" style="margin-top: 60px;">
+                <div class="sidebar-card alt-bg" style="width: 100%; text-align: center;">
+                    <h3 style="margin-top:0;">Join the Mancini Group</h3>
+                    <p>
                         <a href="contact.html" class="red-link">Drop us a comment</a> to find out more or stop over in our 
                         <a href="people.html" class="red-link">people section</a> to meet some group members.
                     </p>
@@ -107,18 +201,13 @@
     </footer>
 
     <script>
-        fetch('nav.html?v=' + Date.now()) 
+        fetch('menu.html?v=' + Date.now())
             .then(response => {
                 if (!response.ok) throw new Error("Nav load failed");
                 return response.text();
             })
             .then(data => {
-                document.getElementById('nav-placeholder').innerHTML = data;
-            })
-            .catch(error => {
-                console.error('Fetch error:', error);
-                document.getElementById('nav-placeholder').innerHTML = 
-                    '<nav style="padding:20px; text-align:center; background:#eee;"><a href="index.html">Home</a> | <a href="people.html">People</a> | <a href="publications.html">Publications</a></nav>';
+                document.getElementById('new-menu-area').innerHTML = data;
             });
     </script>
 

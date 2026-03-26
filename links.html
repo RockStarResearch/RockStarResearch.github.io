@@ -3,120 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
     <title>Mancini Lab | Useful Links</title>
-    <meta name="description" content="Useful resources and academic links for the Mancini Group at Miami University.">
     
+    <meta name="description" content="Useful resources and academic links for the Mancini Group at Miami University.">
     <link rel="icon" type="image/png" href="images/favicon.png">
     <link rel="shortcut icon" href="images/favicon.png" type="image/png">
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
     <link rel="stylesheet" href="style.css">
-
-    <style>
-        /* Shared Fixed Navigation Styling */
-        #nav-placeholder nav {
-            position: fixed !important;
-            top: 0 !important;
-            left: 0 !important;
-            width: 100% !important;
-            z-index: 999999 !important;
-            background-color: white !important;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-
-        .links-container {
-            max-width: 700px;
-            margin: 120px auto 40px; /* Clears fixed navigation */
-            padding: 0 20px;
-        }
-
-        .links-header {
-            text-align: center;
-            margin-bottom: 40px;
-        }
-
-        /* Matches the 'Welcome' title style from index.html */
-        .intro-title {
-            font-size: 2.5rem; 
-            margin-bottom: 30px;
-            color: #333; /* The standard dark grey/black used in your layout */
-        }
-
-        /* Card Approach */
-        .link-card {
-            display: block;
-            background: white;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            padding: 25px;
-            margin-bottom: 20px;
-            text-decoration: none;
-            color: #333;
-            transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
-        }
-
-        .link-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
-            border-color: #a6192e;
-        }
-
-        .link-card h3 {
-            margin: 0;
-            color: #a6192e;
-            font-size: 1.3rem;
-        }
-
-        .link-card p {
-            margin: 12px 0 0;
-            line-height: 1.5;
-            color: #555;
-            font-size: 1rem;
-        }
-
-        body {
-            margin: 0 !important;
-            padding: 0 !important;
-            background-color: #f9f9f9; 
-        }
-    </style>
 </head>
-
 <body>
 
-    <div id="nav-placeholder"></div>
+    <div id="new-menu-area"></div>
+
+    <div class="lab-hero-scroll"></div>
 
     <div class="container">
-        <main class="links-container">
-            <div class="links-header">
-                <h2 class="intro-title">Useful Links</h2>
-            </div>
+        <header style="text-align: center; margin-top: 50px; border-bottom: none; display: block;">
+            <h1 class="intro-title" style="font-size: 2.5rem; margin-bottom: 10px; color: #333;">Useful Links</h1>
+            <p style="font-size: 1.4rem; color: #555; margin-top: 0; font-style: italic;">Resources for the Modern Lab</p>
+        </header>
 
-            <a href="https://www.chem.rochester.edu/notvoodoo/" class="link-card" target="_blank">
-                <h3>NotVooDoo</h3>
-                <p>An invaluable resource for practical tips, techniques, and troubleshooting in the organic chemistry laboratory.</p>
+        <main class="links-list-container">
+            <a href="https://scholar.google.com/" class="link-card" target="_blank">
+                <h3>Google Scholar</h3>
+                <p>A freely accessible web search engine that indexes the full text or metadata of scholarly literature across an array of publishing formats and disciplines.</p>
             </a>
 
-            <a href="https://floreada.io/" class="link-card" target="_blank">
-                <h3>Floreada.io</h3>
-                <p>A powerful, browser-based tool for analyzing flow cytometry data.</p>
-            </a>
-
-            <a href="https://www.thermofisher.com/order/fluorescence-spectraviewer/#!/" class="link-card" target="_blank">
-                <h3>Fluorescence SpectraViewer</h3>
-                <p>The ThermoFisher tool for plotting and comparing excitation and emission spectra for fluorophores and filters.</p>
-            </a>
-
-            <a href="https://opig.stats.ox.ac.uk/webapps/sabdab-sabpred/sabpred" class="link-card" target="_blank">
-                <h3>SAbPred</h3>
-                <p>The Structural Antibody Prediction toolbox; used for modeling antibody structures and predicting interactions.</p>
-            </a>
-
-            <a href="https://scifinder.cas.org/" class="link-card" target="_blank">
-                <h3>SciFinder</h3>
-                <p>A comprehensive database for chemical literature, substances, and reaction searching.</p>
+            <a href="https://scifinder-n.cas.org/" class="link-card" target="_blank">
+                <h3>SciFinder-n</h3>
+                <p>The industry's most advanced tool for chemical literature, substances, and reaction searching.</p>
             </a>
 
             <a href="https://www.webofscience.com/" class="link-card" target="_blank">
@@ -133,7 +50,6 @@
                 <h3>Miami University Chemistry</h3>
                 <p>The Department of Chemistry and Biochemistry home page at Miami University.</p>
             </a>
-
         </main>
     </div>
 
@@ -142,20 +58,14 @@
     </footer>
 
     <script>
-        fetch('nav.html?v=' + Date.now()) 
+        fetch('menu.html?v=' + Date.now())
             .then(response => {
-                if (!response.ok) throw new Error("HTTP error! Status: " + response.status);
+                if (!response.ok) throw new Error("Nav load failed");
                 return response.text();
             })
             .then(data => {
-                document.getElementById('nav-placeholder').innerHTML = data;
-            })
-            .catch(error => {
-                console.error('Fetch error:', error);
-                document.getElementById('nav-placeholder').innerHTML = 
-                    '<nav style="padding:20px; text-align:center; background:#eee;"><a href="index.html">Home</a> | <a href="people.html">People</a></nav>';
+                document.getElementById('new-menu-area').innerHTML = data;
             });
     </script>
-
 </body>
 </html>

@@ -15,11 +15,13 @@
 </head>
 <body>
 
-    <div id="nav-placeholder"></div>
+    <div id="new-menu-area"></div>
+
+    <div class="lab-hero-scroll"></div>
 
     <div class="container">
         <header style="text-align: center; margin-top: 50px; border-bottom: none; display: block;">
-            <h1 class="intro-title" style="font-size: 2.5rem; margin-bottom: 10px;">Research Overview</h1>
+            <h1 class="intro-title" style="font-size: 2.5rem; margin-bottom: 10px; color: #333;">Research Overview</h1>
             <p style="font-size: 1.4rem; color: #555; margin-top: 0; font-style: italic;">Hacking Immune Programs Since 2015</p>
         </header>
 
@@ -39,7 +41,7 @@
                         <details>
                             <summary></summary>
                             <div class="hypothesis-text">
-                                <p>Cancers are highly heterogeneous in nature which in part accounts for their difficulty in treatment. While many cancers are initially susceptible to chemotherapy, over time, chronic exposure to treatment, provides epigenetic pressure for survival of cancer cell populations that are resistant to chemotherapy. This results in recurrence of multidrug resistant cancers that no longer respond to traditional chemotherapies. Two changes to cancer cell metabolism and molecular trafficking are common among multidrug resistant cancers that allow them to resist traditional chemotherapy: 1) chemotherapeutics are degraded through upregulated hydrolase enzymes such as galactosidase or mannosidase and 2) chemotherapeutic drugs are trafficked outside of cancer cells by proteins involved in active transport, such a P-Glycoproteins. Both of these pathways act in tandem to diminish the anti-cancer effects of chemotherapeutic drugs. Our Bystander Assisted ImmunoTherapy (BAIT), technique exploits these changes in cancer cell metabolism and molecular trafficking to elicit an anti-cancer immune response.</p>
+                                <p>Cancers are highly heterogeneous in nature which in part accounts for their difficulty in treatment. While many cancers are initially susceptible to chemotherapy, over time, chronic exposure to treatment provides epigenetic pressure for survival of cancer cell populations that are resistant to chemotherapy. This results in recurrence of multidrug resistant cancers that no longer respond to traditional chemotherapies. Two changes to cancer cell metabolism and molecular trafficking are common among multidrug resistant cancers that allow them to resist traditional chemotherapy: 1) chemotherapeutics are degraded through upregulated hydrolase enzymes such as galactosidase or mannosidase and 2) chemotherapeutic drugs are trafficked outside of cancer cells by proteins involved in active transport, such a P-Glycoproteins. Both of these pathways act in tandem to diminish the anti-cancer effects of chemotherapeutic drugs. Our Bystander Assisted ImmunoTherapy (BAIT) technique exploits these changes in cancer cell metabolism and molecular trafficking to elicit an anti-cancer immune response.</p>
                                 <p>We hypothesized that the altered enzymatic activity of multidrug resistant cancers could be used to convert an inactive prodrug to a potent immunostimulant that could raise an anti-cancer immune response following trafficking to the extracellular space. If successful, this approach would not only produce anti-cancer effects, but would also provide epigenetic pressure to reverse the multidrug resistant phenotype thereby restoring sensitivity to more established chemotherapeutics.</p>
                                 <p>To satisfy the requirements for hydrolase conversion of prodrug to immunostimulant, we are developing several examples of hydrolase labile substrates that can act as a molecular switch to modulate the activity of immunostimulants. This results in enzyme-directed immunostimulants that activate nearby (bystander) immune cells exclusively in the presence of cancer cells that possess complimentary enzyme. To allow this to occur, we are simultaneously developing a library of structural parameters that establish a structure activity relationship for the susceptibility of immunostimulants to P-glycoprotein mediated trafficking.</p>
                             </div>
@@ -148,18 +150,13 @@
     </footer>
 
     <script>
-        fetch('nav.html?v=' + Date.now()) 
+        fetch('menu.html?v=' + Date.now())
             .then(response => {
-                if (!response.ok) throw new Error("HTTP error! Status: " + response.status);
+                if (!response.ok) throw new Error("Nav load failed");
                 return response.text();
             })
             .then(data => {
-                document.getElementById('nav-placeholder').innerHTML = data;
-            })
-            .catch(error => {
-                console.error('Fetch error:', error);
-                document.getElementById('nav-placeholder').innerHTML = 
-                    '<nav style="padding:20px; text-align:center; background:#eee;"><a href="index.html">Home</a> | <a href="people.html">People</a></nav>';
+                document.getElementById('new-menu-area').innerHTML = data;
             });
     </script>
 </body>

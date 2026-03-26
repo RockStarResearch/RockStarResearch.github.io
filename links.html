@@ -76,6 +76,15 @@
             })
             .then(data => {
                 document.getElementById('new-menu-area').innerHTML = data;
+                                // Logic for the active page styling (red drop-shadow)
+                const currentPage = window.location.pathname.split("/").pop() || "index.html";
+                const navLinks = document.querySelectorAll('.nav-item');
+                
+                navLinks.forEach(link => {
+                    if (link.getAttribute('href') === currentPage) {
+                        link.classList.add('active');
+                    }
+                });
             });
     </script>
 </body>

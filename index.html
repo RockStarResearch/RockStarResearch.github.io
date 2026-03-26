@@ -208,6 +208,17 @@
             })
             .then(data => {
                 document.getElementById('new-menu-area').innerHTML = data;
+
+                // AUTO-GLOW LOGIC:
+                // Identify current page and apply the 'active' class to the correct button.
+                const currentPage = window.location.pathname.split("/").pop() || "index.html";
+                const navLinks = document.querySelectorAll('.nav-item');
+                
+                navLinks.forEach(link => {
+                    if (link.getAttribute('href') === currentPage) {
+                        link.classList.add('active');
+                    }
+                });
             });
     </script>
 

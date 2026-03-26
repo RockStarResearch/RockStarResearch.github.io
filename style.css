@@ -50,23 +50,41 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    transition: transform 0.2s ease;
+    transition: all 0.3s ease;
+    padding-bottom: 5px;
 }
 
 .nav-item:hover {
     transform: translateY(-2px);
+    color: var(--miami-red);
 }
 
 .nav-item img {
     width: 50px; 
     height: 50px;
     margin-bottom: 8px;
+    transition: filter 0.3s ease;
 }
 
 .nav-item span {
     font-size: 0.85rem; 
     font-weight: bold;
     letter-spacing: 1.5px;
+}
+
+/* --- THE ACTIVE STATE --- */
+/* Red drop-shadow glow applied to the current page icon */
+.nav-item.active img {
+    filter: drop-shadow(0 0 8px rgba(166, 25, 46, 0.8));
+}
+
+.nav-item.active span {
+    color: var(--miami-red);
+}
+
+/* Red underline removed from here */
+.nav-item.active {
+    border-bottom: none;
 }
 
 /* --- SCROLLING HERO --- */
@@ -77,11 +95,9 @@ body {
     background-image: url('images/schlenk.jpg') !important;
     background-size: cover;
     background-position: center;
-    /* Pushes the entire section down so it starts AFTER the menu */
     margin-top: 135px; 
     z-index: 1;
     overflow: hidden;
-    /* Flex alignment ensures children (logo) are centered in the VISIBLE box */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -97,14 +113,14 @@ body {
 
 .lab-hero-scroll::after {
     content: "";
-    position: relative; /* Changed to relative to work with parent flexbox centering */
+    position: relative;
     background-image: url('images/ManciniGroup_Logo.svg') !important;
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
     width: 80%; 
     max-width: 750px;
-    height: 400px; /* Constrained height to prevent clipping */
+    height: 400px; 
     z-index: 3;
     pointer-events: none;
 }
@@ -194,14 +210,8 @@ details[open] summary::after { content: " [Show Less]"; }
     .pub-toc-container { width: 100%; }
 }
 
-/* --- MOBILE STACKING --- */
 @media (max-width: 600px) {
-    .nav-links {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 5px;
-        padding: 0 10px;
-    }
+    .nav-links { flex-wrap: wrap; justify-content: center; gap: 5px; padding: 0 10px; }
     .nav-item { flex: 0 0 30%; margin-bottom: 10px; }
     .nav-item img { width: 40px; height: 40px; }
     .nav-item span { font-size: 0.7rem; }

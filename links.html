@@ -26,9 +26,19 @@
         </header>
 
         <main class="links-list-container">
-            <a href="https://scholar.google.com/" class="link-card" target="_blank">
-                <h3>Google Scholar</h3>
-                <p>A freely accessible web search engine that indexes the full text or metadata of scholarly literature across an array of publishing formats and disciplines.</p>
+            <a href="https://flowreada.com/" class="link-card" target="_blank">
+                <h3>Flowreada</h3>
+                <p>A specialized tool for processing and analyzing flow cytometry data with an emphasis on reproducible workflows.</p>
+            </a>
+
+            <a href="https://notvoodoo.com/" class="link-card" target="_blank">
+                <h3>Not Voodoo</h3>
+                <p>An essential resource for organic chemists providing demystified techniques for synthesis, purification, and troubleshooting in the lab.</p>
+            </a>
+
+            <a href="http://opig.stats.ox.ac.uk/webapps/newsabpred/sabpred" class="link-card" target="_blank">
+                <h3>SAbPred</h3>
+                <p>A structural antibody prediction platform providing tools for modeling and analyzing antibody-antigen interactions.</p>
             </a>
 
             <a href="https://scifinder-n.cas.org/" class="link-card" target="_blank">
@@ -58,6 +68,7 @@
     </footer>
 
     <script>
+        // Load navigation dynamically
         fetch('menu.html?v=' + Date.now())
             .then(response => {
                 if (!response.ok) throw new Error("Nav load failed");

@@ -23,9 +23,12 @@ body {
     width: 100%;
     z-index: 999999;
     background: white;
-    /* PRONOUNCED OPTION 3: Deep Soft Shadow & Edge Definition */
     box-shadow: 0 8px 15px rgba(0,0,0,0.12), 0 2px 4px rgba(0,0,0,0.05);
-    border-bottom: 1px solid #e0e0e0;
+    
+  
+    /* Ensuring no other properties are interfering with the bottom edge */
+    margin: 0;
+    padding: 0;
 }
 
 .main-header {
@@ -135,12 +138,74 @@ body {
 }
 
 /* --- PEOPLE PAGE SPECIFIC --- */
+/* --- PEOPLE PAGE SPECIFIC --- */
 .page-title { margin: 2.5rem 0; text-align: center; font-size: 2.5rem; color: #1a1a1a; }
 .people-section { margin-bottom: 4rem; }
 .section-label { 
     font-size: 1.8rem; text-transform: capitalize; letter-spacing: 1px; color: var(--miami-red); 
     border-bottom: 2px solid var(--border-color); padding-bottom: 10px; margin-bottom: 30px; 
 }
+
+.person-column { display: flex; flex-direction: column; align-items: center; gap: 35px; }
+
+.person-card {
+    width: 100%; 
+    max-width: 700px; 
+    display: flex; 
+    /* 1. REMOVE BORDER: Use inset shadow to prevent bleeding */
+    border: none; 
+    box-shadow: inset 0 0 0 1px #ddd; 
+    border-radius: 12px;
+    overflow: hidden; 
+    text-align: left; 
+    background: white; 
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    padding: 25px; 
+    gap: 25px;
+    cursor: pointer;
+    
+    /* 2. SNAP TO GRID: Hardware acceleration logic */
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    will-change: transform;
+}
+
+.person-card:hover { 
+    transform: translateY(-8px); 
+    /* Keep the inset "border" shadow while adding the external glow */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08), inset 0 0 0 1px #ddd; 
+}
+
+.person-left { flex: 0 0 180px; display: flex; flex-direction: column; align-items: center; }
+
+.person-left img { 
+    width: 100%; 
+    height: 180px; 
+    object-fit: contain; 
+    border-radius: 8px; 
+    margin-bottom: 15px; 
+    /* 3. REMOVE BORDER: Use shadow for headshot edge */
+    border: none;
+    box-shadow: inset 0 0 0 1px #eee;
+}
+
+.person-info-text { text-align: center; }
+.person-info-text h3 { margin: 0; font-size: 1.2rem; color: #000; }
+.person-info-text .role { margin: 4px 0 0; font-size: 0.95rem; color: #666; }
+
+.person-details-right { 
+    flex: 1; 
+    display: flex; 
+    flex-direction: column; 
+    gap: 15px; 
+    padding-left: 25px; 
+    /* 4. REMOVE BORDER: Replace the vertical line with a shadow */
+    border-left: none; 
+    box-shadow: -1px 0 0 0 #eee; 
+}
+
+.detail-block h4 { margin: 0 0 4px 0; font-size: 1.05rem; color: #333; font-weight: 700; }
+.detail-block p { margin: 0; font-size: 1.05rem; color: #444; line-height: 1.6; }
 
 /* Link wrapper for cards */
 .card-link {
@@ -185,12 +250,71 @@ details[open] summary::after { content: " [Show Less]"; }
 .image-caption { font-size: 0.95rem; color: #444; font-style: italic; margin-top: 15px; text-align: center; }
 
 /* --- PUBLICATIONS PAGE SPECIFIC --- */
-.pub-card { display: flex; gap: 25px; padding: 25px 0; border-bottom: 1px solid #eee; align-items: flex-start; }
-.pub-toc-container { width: 280px; flex-shrink: 0; background: #fdfdfd; border: 1px solid #ddd; border-radius: 4px; overflow: hidden; }
-.pub-toc-img { width: 100%; height: auto; display: block; }
-.pub-title { font-size: 1.25rem; font-weight: 700; color: var(--miami-red); text-decoration: none; display: block; margin-bottom: 10px; }
-.pub-authors { font-size: 1rem; color: #333; }
-.pub-journal { font-style: italic; color: #666; }
+.pub-list { 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; /* Centers the column of cards */
+    gap: 30px; 
+    margin-top: 40px; 
+}
+
+.pub-card { 
+    display: flex; 
+    gap: 20px; 
+    padding: 15px; 
+    border: 1px solid #ddd; 
+    border-radius: 12px; 
+    align-items: flex-start; 
+    background: white; 
+    
+    /* 1. Snaps the card to whole pixels to stop the "fringing" */
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 100%; 
+    max-width: 950px; 
+    box-sizing: border-box;
+}
+
+.pub-card:hover { 
+    transform: translateY(-5px); 
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08); 
+}
+
+.pub-toc-container { 
+    width: 275px;
+    flex-shrink: 0;
+    
+    /* 2. Remove the internal border that is causing the vertical lines */
+    border: none; 
+    
+    /* 3. Use an inset box-shadow instead of a border. 
+       Shadows are rendered differently and don't "bleed" during transforms. */
+    box-shadow: inset 0 0 0 1px #eee;
+    
+    border-radius: 6px; 
+    overflow: hidden; 
+    display: flex; 
+    align-items: center; 
+}
+
+.pub-toc-img { 
+    width: 100%; 
+    height: auto; 
+    display: block;
+    /* 4. Ensure the image doesn't have its own sub-pixel bleed */
+    image-rendering: -webkit-optimize-contrast;
+}
+
+.pub-info { 
+    flex: 1;           /* Forces text to take up all remaining space in the card */
+    min-width: 0;      /* Prevents long titles from pushing the card wider than 950px */
+}
+.pub-title { font-size: 1.3rem; font-weight: 700; color: var(--miami-red); text-decoration: none; display: block; margin-bottom: 12px; line-height: 1.4; }
+.pub-authors { font-size: 1rem; color: #444; margin-bottom: 8px; }
+.pub-journal { font-size: 0.95rem; color: #666; }
+
 .patent-section { margin-top: 60px; }
 .patent-link { font-size: 1.15rem; color: var(--miami-red); text-decoration: none; font-weight: bold; }
 
@@ -220,7 +344,7 @@ details[open] summary::after { content: " [Show Less]"; }
     .pub-card, .person-card { flex-direction: column; align-items: center; text-align: center; }
     .person-details-right { border-left: none; padding-left: 0; border-top: 1px solid #eee; padding-top: 20px; }
     .float-card { float: none; width: 100%; margin-left: 0; }
-    .pub-toc-container { width: 100%; }
+    .pub-toc-container { width: 100%; margin-bottom: 20px; }
 }
 
 @media (max-width: 600px) {

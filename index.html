@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="style.css">
 
     <style>
+        /* Sidebar and Float Card Logic */
         .sidebar-card {
             border: 1px solid #ddd !important;
             padding: 20px;
@@ -28,6 +29,7 @@
             margin-bottom: 20px;
         }
 
+        /* Research Button Styling */
         .research-button-list {
             list-style: none;
             padding: 0;
@@ -57,16 +59,7 @@
             box-shadow: 0 4px 15px rgba(0,0,0,0.2);
         }
 
-        .red-link {
-            color: #a6192e;
-            font-weight: bold;
-            text-decoration: none;
-        }
-        
-        .red-link:hover {
-            text-decoration: underline;
-        }
-
+        /* Lab Specific Content Styling */
         .lab-quote {
             border-left: 5px solid #a6192e;
             padding-left: 20px;
@@ -75,7 +68,6 @@
             color: #555;
         }
 
-        /* Recruitment Section Styling */
         .recruitment-box {
             margin-top: 40px;
             border-top: 1px solid #eee;
@@ -91,12 +83,14 @@
         .great-chemistry-callout {
             color: #a6192e;
             font-weight: bold;
-            font-size: 2rem; /* Significantly larger */
+            font-size: 2.2rem;
             text-align: center;
             display: block;
             margin-top: 20px;
+            letter-spacing: 1px;
         }
 
+        /* Responsive Fixes */
         @media (max-width: 900px) {
             .float-card {
                 float: none;
@@ -132,9 +126,12 @@
                     
                     <p>
                         We are an eclectic and irreverent group of researchers that enjoy pursuing creative approaches to disrupt scientific paradigms. 
-                        Our research interests span topics that include <strong>polymer</strong> and <strong>organic chemistry</strong> as well as <strong>synthetic immunology</strong>. 
                         Currently our group is focused on creating the next generation of immunotherapies by synthesizing designer 
                         immune modulating materials that have unconventional mechanisms of action.
+                    <br><br>    
+                        Our research interests span topics that include <strong>polymer</strong> and <strong>organic chemistry</strong> as well as <strong>synthetic immunology</strong>. 
+                    <br><br>
+                    <strong>We ask questions like...</strong>
                     </p>
 
                     <div class="sidebar-card float-card">
@@ -148,9 +145,9 @@
                         </ul>
                     </div>
 
-                    <blockquote class="lab-quote">
+                    <blockquote class="lab-quote" style="font-size: 1.1rem">
                         "What molecular cues allow a tumor to evade immunosurveillance?" <br><br>
-                        "How does macromolecular shape influence vaccine efficacy and safety?" <br><br>
+                        "How does macromolecular shape influence vaccine efficacy?" <br><br>
                         "Can we couple an immune response to cancer cell metabolism?" <br><br>
                         "What new chemistry is needed to create a synthetic immune cell?"
                     </blockquote>
@@ -171,10 +168,10 @@
                     </p>
 
                     <div class="recruitment-box">
-                        <span class="centered-line">
+                        <span class="centered-line" style="font-size: 1.1rem">
                             Researchers in the group are generally expected to lead a research project in consultation with their advisor.
                         </span>
-                        <span class="centered-line" style="font-weight: bold;">
+                        <span class="centered-line" style="font-weight: bold; font-size: 1.2rem">
                             Do you like the idea of having creative freedom to make groundbreaking scientific discoveries? If so...
                         </span>
                         <span class="great-chemistry-callout">
@@ -185,11 +182,15 @@
             </section>
 
             <section class="home-grid" style="margin-top: 60px;">
-                <div class="sidebar-card alt-bg" style="width: 100%; text-align: center;">
-                    <h3 style="margin-top:0;">Join the Mancini Group</h3>
+                <div class="sidebar-card alt-bg" style="width: 100%; text-align: center; border: 2px solid var(--miami-red) !important; background: #fffafb;">
+                    <h3 style="margin-top:0; color: var(--miami-red);">Think You'd Fit In?</h3>
+                    <p style="font-size: 1.1rem; max-width: 800px; margin: 0 auto 20px auto;">
+                        We are always on the lookout for unorthodox thinkers and hardworking scientists to join our team. 
+                        
+                    </p>
                     <p>
-                        <a href="contact.html" class="red-link">Drop us a comment</a> to find out more or stop over in our 
-                        <a href="people.html" class="red-link">people section</a> to meet some group members.
+                        <a href="contact.html" class="red-link" style="font-size: 1.2rem; text-decoration: underline;">Send us a message</a> or stop by the 
+                        <a href="people.html" class="red-link" style="font-size: 1.2rem; text-decoration: underline;">people section</a> to meet the group.
                     </p>
                 </div>
             </section>
@@ -208,12 +209,8 @@
             })
             .then(data => {
                 document.getElementById('new-menu-area').innerHTML = data;
-
-                // AUTO-GLOW LOGIC:
-                // Identify current page and apply the 'active' class to the correct button.
                 const currentPage = window.location.pathname.split("/").pop() || "index.html";
                 const navLinks = document.querySelectorAll('.nav-item');
-                
                 navLinks.forEach(link => {
                     if (link.getAttribute('href') === currentPage) {
                         link.classList.add('active');

@@ -231,3 +231,18 @@ details[open] summary::after { content: " [Show Less]"; }
     .lab-hero-scroll { margin-top: 180px; height: 350px; }
     .lab-hero-scroll::after { width: 90%; height: 250px; }
 }
+
+/* Home Page Join Us Box Enhancement */
+.alt-bg {
+    box-shadow: 0 10px 25px rgba(166, 25, 46, 0.1) !important;
+    transition: all 0.3s ease;
+}
+
+.alt-bg:hover {
+    box-shadow: 0 15px 35px rgba(166, 25, 46, 0.15) !important;
+    transform: translateY(-5px);
+}
+
+.lab-description p {
+    font-size: 1.15rem; /* Adjust this number to get the perfect size */
+}

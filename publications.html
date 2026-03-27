@@ -100,32 +100,38 @@
         const container = document.getElementById('pub-list-container');
         const loading = document.getElementById('loading');
 
-        function createCard(item, tocPath) {
-            const authorList = item.author 
-                ? item.author.map(a => `${a.family}, ${a.given ? a.given[0] + '.' : ''}`).join('; ') 
-                : "Authors not listed";
-            const journal = item['container-title'] ? item['container-title'][0] : "Journal info missing";
-            const year = item.issued['date-parts'][0][0];
-            const volume = item.volume || "";
-            const pages = item.page || "";
+function createCard(item, tocPath) {
+    const authorList = item.author 
+        ? item.author.map(a => `${a.family}, ${a.given ? a.given[0] + '.' : ''}`).join('; ') 
+        : "Authors not listed";
+    
+    const journal = item['container-title'] ? item['container-title'][0] : "Journal info missing";
+    const year = item.issued['date-parts'][0][0];
+    const volume = item.volume || "";
+    const pages = item.page || "";
 
-            const card = document.createElement('div');
-            card.className = 'pub-card';
-            card.innerHTML = `
-                <div class="pub-toc-container">
-                    <img src="${tocPath}" 
-                         onerror="if (this.src.indexOf('ManciniGroup_Logo.svg') == -1) { this.src='images/ManciniGroup_Logo.svg'; this.className='pub-toc-img fallback-logo'; }" 
-                         class="pub-toc-img" 
-                         alt="TOC">
-                </div>
-                <div class="pub-info">
-                    <a href="${item.URL}" target="_blank" class="pub-title">${item.title[0]}</a>
-                    <p class="pub-authors">${authorList}</p>
-                    <p class="pub-journal"><em>${journal}</em>, <strong>${year}</strong>, ${volume}, ${pages}.</p>
-                </div>
-            `;
-            return card;
-        }
+    const card = document.createElement('div');
+    card.className = 'pub-card';
+    
+    // ADDED: This makes the entire card clickable
+    card.style.cursor = 'pointer';
+    card.onclick = () => { window.open(item.URL, '_blank'); };
+
+    card.innerHTML = `
+        <div class="pub-toc-container">
+            <img src="${tocPath}" 
+                 onerror="if (this.src.indexOf('ManciniGroup_Logo.svg') == -1) { this.src='images/ManciniGroup_Logo.svg'; this.className='pub-toc-img fallback-logo'; }" 
+                 class="pub-toc-img" 
+                 alt="TOC">
+        </div>
+        <div class="pub-info">
+            <span class="pub-title">${item.title[0]}</span>
+            <p class="pub-authors">${authorList}</p>
+            <p class="pub-journal">${journal}, <strong>${year}</strong>, ${volume}, ${pages}.</p>
+        </div>
+    `;
+    return card;
+}
 
         async function fetchPubs() {
             for (const doi of rawDois) {

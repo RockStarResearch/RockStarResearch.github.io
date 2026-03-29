@@ -12,3 +12,7 @@ Icon?
 
 #ignore the backup
 Backup/
+
+#Private/Internal administrative tools
+lab-admin-portal.html
+registry_tool.html
